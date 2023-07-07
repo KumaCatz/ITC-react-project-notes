@@ -1,7 +1,7 @@
 import "../css/NoteForm.css"
 
 const NoteForm = (props) => {
-    const []
+    // const []
 
     return (
     <div>
@@ -11,7 +11,7 @@ const NoteForm = (props) => {
                     <textarea></textarea>
                 </div>
                 <div className="submit">
-                    <input type="submit" value="Add" id="btn" onClick= />
+                    {/* <input type="submit" value="Add" id="btn" onClick= /> */}
                 </div>
             </fieldset>
         </form>
