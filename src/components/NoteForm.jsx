@@ -1,13 +1,13 @@
-import "./NoteForm.css"
+import "../css/NoteForm.css"
 
-const NoteForm = () => (
+const NoteForm = (props) => (
     <div>
         <form>
-            <fieldset class="fieldset">
-                <div class="textarea">
+            <fieldset className="fieldset">
+                <div className="textarea">
                     <textarea></textarea>
                 </div>
-                <div class="submit">
+                <div className="submit">
                     <input type="submit" value="Add" />
                 </div>
             </fieldset>
