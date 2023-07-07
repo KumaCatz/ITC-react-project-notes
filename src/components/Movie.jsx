@@ -2,7 +2,6 @@ import React from 'react';
 import "../css/Movie.css";
 
 const [currentTime, setCurrentTime] = useState(new Date())
-const setCurrentTime
 
 const Movie = (props) => {
 
