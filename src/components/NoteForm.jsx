@@ -1,42 +1,34 @@
-import "../css/NoteForm.css"
+import React, { useState } from 'react';
+import GenerateNote from './GenerateNote';
+import "../css/NoteForm.css";
 
-const NoteForm = (props) => {
-    // const []
+const NoteForm = () => {
+
+    function handleClick(e) {
+        e.preventDefault();
+        const textarea = document.getElementById("textarea");
+        if(textarea) {
+            <GenerateNote />
+        };
+    }
 
     return (
-    <div>
         <form>
+            <h1>My form app I guess</h1>
             <fieldset className="fieldset">
                 <div className="textarea">
-                    <textarea></textarea>
+                    <textarea id="textarea"></textarea>
                 </div>
                 <div className="submit">
-                    {/* <input type="submit" value="Add" id="btn" onClick= /> */}
+                    <input
+                        type="submit"
+                        value="Add"
+                        onClick={ handleClick }
+                    />
                 </div>
             </fieldset>
         </form>
-    </div>
     )
 }
 
 export default NoteForm;
-
-// import React, { useState } from 'react';
-
-// function DynamicDiv() {
-//   const [divElements, setDivElements] = useState([]);
-
-//   function generateDiv() {
-//     const newDiv = <div key={divElements.length}>New Div Element</div>;
-//     setDivElements([...divElements, newDiv]);
-//   }
-
-//   return (
-//     <div>
-//       <button onClick={generateDiv}>Generate Div</button>
-//       {divElements.map((divElement) => divElement)}
-//     </div>
-//   );
-// }
-
-// export default DynamicDiv;

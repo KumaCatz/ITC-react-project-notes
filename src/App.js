@@ -17,12 +17,11 @@ import GenerateNote from "./components/GenerateNote";
 
 function App() {
   return (
-    <div className="App">
+    <>
       {/* <Movie { ...movie }/> */}
       <NoteForm />
-      <GenerateNote />
       {/* <NoteView /> */}
-    </div>
+    </>
   );
 }
 
