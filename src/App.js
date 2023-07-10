@@ -1,8 +1,6 @@
 import './App.css';
 // import Movie from './components/Movie';
 import NoteForm from "./components/NoteForm";
-import GenerateNote from "./components/GenerateNote";
-
 
 // const movie = {
 //   name: "Forrest Gump",

@@ -1,15 +1,15 @@
 import React from 'react';
 
-const GenerateNote = ({ note }) => {
+function GenerateNote({ note }) {
 
     return (
-        <>
-        hiiii
+        <div>
+            hiiiii
             { note.map((text, index) => {
-                <div key={ index }>{text}</div>
+                return <div key={ index }>{text}</div>
                 }
             )}
-        </>
+        </div>
     )
 }
 

@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import GenerateNote from './GenerateNote';
 import "../css/NoteForm.css";
 
-const NoteForm = () => {
+function NoteForm() {
     const [note, setNote] = useState([]);
     const [input, setInput] = useState('');
+    const [index, setIndex] = useState(0);
 
     function handleClick(e) {
         e.preventDefault();
-        setNote(notes => [...notes, { input }])
+        if(input === '') return;
+        setNote([...note, input])
+        setIndex(index + 1);
+        setInput('');
+        console.log(note)
     }
 
     function handleChange(e) {
