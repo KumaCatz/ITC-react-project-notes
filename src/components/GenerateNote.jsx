@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const GenerateNote = ({ prop }) => {
+const GenerateNote = ({ note }) => {
 
     return (
         <>
-            <div>
-                sqsq
-            </div>
-            <div>hiss</div>
+        hiiii
+            { note.map((text, index) => {
+                <div key={ index }>{text}</div>
+                }
+            )}
         </>
     )
 }
