@@ -1,14 +1,10 @@
 import React from 'react';
 
 function GenerateNote({ note }) {
-
+    
     return (
         <div>
-            hiiiii
-            { note.map((text, index) => {
-                return <div key={ index }>{text}</div>
-                }
-            )}
+            { note.map((object) => <div key={ object.id }>{ object.content }</div>) }
         </div>
     )
 }

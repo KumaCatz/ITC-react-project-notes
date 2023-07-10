@@ -5,15 +5,26 @@ import "../css/NoteForm.css";
 function NoteForm() {
     const [note, setNote] = useState([]);
     const [input, setInput] = useState('');
-    const [index, setIndex] = useState(0);
+    const [idCounter, setIdCounter] = useState(0);
 
     function handleClick(e) {
         e.preventDefault();
         if(input === '') return;
-        setNote([...note, input])
-        setIndex(index + 1);
+
+        const newNote = {
+            id: idCounter,
+            content: input,
+        }
+
+        setNote([...note, newNote]);
         setInput('');
-        console.log(note)
+        setIdCounter(idCounter + 1);
+    }
+
+    function handleKeyDown(e) {
+        if(e.key === 'Enter') {
+            handleClick(e);
+        }
     }
 
     function handleChange(e) {
@@ -30,6 +41,7 @@ function NoteForm() {
                             id="textarea"
                             value={ input }
                             onChange={ handleChange }
+                            onKeyDown={ handleKeyDown }
                             >
                         </textarea>
                     </div>
@@ -42,9 +54,7 @@ function NoteForm() {
                     </div>
                 </fieldset>
             </form>
-            <div>
-                <GenerateNote note={ note } />
-            </div>
+            <GenerateNote note={ note } />
         </div>
     )
 }
