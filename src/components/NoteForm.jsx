@@ -14,6 +14,7 @@ function NoteForm() {
         const newNote = {
             id: idCounter,
             content: input,
+            date: new Date().toString(),
         }
 
         setNote([...note, newNote]);

@@ -3,7 +3,7 @@ form {
     min-width: 100px;
     width: 30vw;
     height: 30vh;
-    margin: auto;
+    margin: auto auto 2rem auto;
     margin-top: 1.5rem;
     display: flex;
     flex-flow: column;

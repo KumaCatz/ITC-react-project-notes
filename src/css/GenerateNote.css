@@ -1,0 +1,9 @@
+.notes-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.notes-container > div {
+    margin: 1em;
+    flex: 0 0 calc(33% - 2em); /* Adjust the width of each child element */
+}
