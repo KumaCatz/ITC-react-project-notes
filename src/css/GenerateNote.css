@@ -5,5 +5,17 @@
 
 .notes-container > div {
     margin: 1em;
-    flex: 0 0 calc(33% - 2em); /* Adjust the width of each child element */
+    flex: 0 0 calc(31.979% - 2em);
+    border: solid;
+    padding: .5em;
+    border-radius: 5px;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-header > div {
+    font-size: .8em;
 }

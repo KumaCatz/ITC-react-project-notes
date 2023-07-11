@@ -12,23 +12,27 @@ function GenerateNote({ notes }) {
             setNotesList(updatedNotes);
             console.log(notes)
         }
-
     }
 
     return (
         <div className='notes-container'>
             { notes.map((object) =>
                 <div key={ object.id }>
-                    <div>
-                        { object.date }
+                    <div className="note-header">
+                        <div>
+                            { object.date }
+                        </div>
+                        <button
+                            onClick={ () => handleDelete(object.id) }>
+                            X
+                        </button>
+                    </div>
+                    <div className='title'>
+                        {}
                     </div>
                     <div>
                         { object.content }
                     </div>
-                    <button
-                        onClick={ () => handleDelete(object.id) }>
-                        delete
-                    </button>
                 </div>
             ) }
         </div>

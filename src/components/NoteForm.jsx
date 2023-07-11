@@ -6,6 +6,7 @@ function NoteForm() {
     const [notes, setNotes] = useState([]);
     const [input, setInput] = useState('');
     const [idCounter, setIdCounter] = useState(0);
+    const [title, setTitle] = useState('');
 
     function handleClick(e) {
         e.preventDefault();
@@ -30,17 +31,22 @@ function NoteForm() {
 
     function handleChange(e) {
         setInput(e.target.value);
+        setTitle(e.target.value);
+        console.log('input ' + input)
+        console.log('title ' + title)
     }
 
     return (
         <div>
+            <h1>Notepad</h1>
             <form>
-                <h1>My form app I guess</h1>
                 <fieldset className="fieldset">
                     <div className="note-title">
                         <textarea
                             type="text"
                             placeholder="My title..."
+                            value={ title }
+                            onChange={ handleChange }
                             >
                         </textarea>
                     </div>

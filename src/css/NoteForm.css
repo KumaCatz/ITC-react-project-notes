@@ -1,5 +1,9 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
 form {
-    /* border: solid 3px green; */
     min-width: 100px;
     width: 30vw;
     height: 30vh;
