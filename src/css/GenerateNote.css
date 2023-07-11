@@ -19,3 +19,7 @@
 .note-header > div {
     font-size: .8em;
 }
+
+.title {
+    font-weight: bold;
+}
