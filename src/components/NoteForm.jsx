@@ -37,9 +37,17 @@ function NoteForm() {
             <form>
                 <h1>My form app I guess</h1>
                 <fieldset className="fieldset">
+                    <div className="note-title">
+                        <textarea
+                            type="text"
+                            placeholder="My title..."
+                            >
+                        </textarea>
+                    </div>
                     <div className="textarea">
                         <textarea
                             id="textarea"
+                            placeholder="My note..."
                             value={ input }
                             onChange={ handleChange }
                             onKeyDown={ handleKeyDown }

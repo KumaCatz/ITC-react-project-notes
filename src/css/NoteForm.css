@@ -21,10 +21,18 @@ form {
     box-shadow: 0 0 99px rgba(0, 0, 0, 0.3);
 }
 
-.textarea {
+.textarea, .note-title {
     width: 90%;
-    flex-grow: 1;
     display: flex;
+}
+
+.note-title {
+    height: 2em;
+    margin-bottom: .5em;
+}
+
+.textarea {
+    flex-grow: 1;
 }
 
 textarea {
