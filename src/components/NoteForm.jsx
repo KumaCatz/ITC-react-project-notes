@@ -3,7 +3,7 @@ import GenerateNote from './GenerateNote';
 import "../css/NoteForm.css";
 
 function NoteForm() {
-    const [note, setNote] = useState([]);
+    const [notes, setNotes] = useState([]);
     const [input, setInput] = useState('');
     const [idCounter, setIdCounter] = useState(0);
 
@@ -17,7 +17,7 @@ function NoteForm() {
             date: new Date().toString(),
         }
 
-        setNote([...note, newNote]);
+        setNotes([...notes, newNote]);
         setInput('');
         setIdCounter(idCounter + 1);
     }
@@ -55,7 +55,7 @@ function NoteForm() {
                     </div>
                 </fieldset>
             </form>
-            <GenerateNote note={ note } />
+            <GenerateNote notes={ notes } />
         </div>
     )
 }

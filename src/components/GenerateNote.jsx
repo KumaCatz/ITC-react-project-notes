@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../css/GenerateNote.css";
 
-function GenerateNote({ note }) {
+function GenerateNote({ notes }) {
+    const [notesList, setNotesList] = useState(notes);
+    
+    function handleDelete(id) {
+        if (window.confirm('Delete this note?') == true) {
+            const updatedNotes = notes.splice(id, 1);
+            setNotesList(updatedNotes);
+        }
+
+    }
 
     return (
         <div className='notes-container'>
-            { note.map((object) =>
+            { notes.map((object) =>
                 <div key={ object.id }>
                     <div>
                         { object.date }
@@ -13,6 +22,10 @@ function GenerateNote({ note }) {
                     <div>
                         { object.content }
                     </div>
+                    <button
+                        onClick={ () => handleDelete(object.id) }>
+                        delete
+                    </button>
                 </div>
             ) }
         </div>
