@@ -7,10 +7,9 @@ function GenerateNote({ notes }) {
     function handleDelete(id) {
         if (window.confirm('Delete this note?') == true) {
             const index = notes.slice().map(element => element.id).indexOf(id);
-            console.log('index ' + index)
             const updatedNotes = notes.splice(index, 1);
+
             setNotesList(updatedNotes);
-            console.log(notes)
         }
     }
 
@@ -27,11 +26,15 @@ function GenerateNote({ notes }) {
                             X
                         </button>
                     </div>
-                    <div className='title'>
-                        {}
-                    </div>
-                    <div>
-                        { object.content }
+                    <div className='content'>
+                        {object.title && (
+                            <div className='title'>
+                            { object.title }
+                            </div>
+                        )}
+                        <div>
+                            { object.content }
+                        </div>
                     </div>
                 </div>
             ) }

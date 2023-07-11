@@ -16,10 +16,12 @@ function NoteForm() {
             id: idCounter,
             content: input,
             date: new Date().toString(),
+            title: title,
         }
 
         setNotes([...notes, newNote]);
         setInput('');
+        setTitle('');
         setIdCounter(idCounter + 1);
     }
 
@@ -30,10 +32,13 @@ function NoteForm() {
     }
 
     function handleChange(e) {
-        setInput(e.target.value);
-        setTitle(e.target.value);
-        console.log('input ' + input)
-        console.log('title ' + title)
+        const { name, value } = e.target;
+
+        if (name === 'title') {
+            setTitle(value);
+        } else if (name === 'input') {
+            setInput(value);
+        }
     }
 
     return (
@@ -46,6 +51,7 @@ function NoteForm() {
                             type="text"
                             placeholder="My title..."
                             value={ title }
+                            name="title"
                             onChange={ handleChange }
                             >
                         </textarea>
@@ -55,6 +61,7 @@ function NoteForm() {
                             id="textarea"
                             placeholder="My note..."
                             value={ input }
+                            name="input"
                             onChange={ handleChange }
                             onKeyDown={ handleKeyDown }
                             >
