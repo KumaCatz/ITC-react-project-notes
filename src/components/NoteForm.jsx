@@ -4,9 +4,10 @@ import "../css/NoteForm.css";
 
 function NoteForm() {
     const [notes, setNotes] = useState([]);
-    const [input, setInput] = useState('');
-    const [idCounter, setIdCounter] = useState(0);
     const [title, setTitle] = useState('');
+    const [input, setInput] = useState('');
+    // const [height, setHeight] = useState(0);
+    const [idCounter, setIdCounter] = useState(0);
 
     function handleClick(e) {
         e.preventDefault();
@@ -25,20 +26,21 @@ function NoteForm() {
         setIdCounter(idCounter + 1);
     }
 
-    function handleKeyDown(e) {
-        if(e.key === 'Enter') {
-            handleClick(e);
-        }
-    }
+    // function handleKeyDown(e) {
+    //     if(e.key === 'Enter') {
+    //         handleClick(e);
+    //     }
+    // }
 
     function handleChange(e) {
-        const { name, value } = e.target;
+        const { name, style, value } = e.target;
 
         if (name === 'title') {
             setTitle(value);
         } else if (name === 'input') {
             setInput(value);
         }
+
     }
 
     return (
@@ -58,12 +60,11 @@ function NoteForm() {
                     </div>
                     <div className="textarea">
                         <textarea
-                            id="textarea"
                             placeholder="My note..."
                             value={ input }
                             name="input"
                             onChange={ handleChange }
-                            onKeyDown={ handleKeyDown }
+                            // onKeyDown={ handleKeyDown }
                             >
                         </textarea>
                     </div>

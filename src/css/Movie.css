@@ -7,6 +7,22 @@ main {
     flex-flow: row;
 }
 
-section {
-    
+img {
+    width: 20vw;
+    margin-right: 1rem;
+}
+
+.container {
+    margin: 2rem
+}
+
+.genre {
+    display: flex;
+}
+
+.genre div {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    padding: .2rem;
+    border-radius: 5px;
+    border: solid rgb(135, 135, 135)
 }

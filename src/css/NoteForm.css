@@ -31,31 +31,33 @@ form {
 }
 
 .note-title {
-    height: 2em;
     margin-bottom: .5em;
 }
 
+.note-title > textarea {
+    height: 1.5em;
+}
+
 .textarea {
-    flex-grow: 1;
+    height: 100%;
 }
 
 textarea {
-    resize: none;
     border-radius: 5px;
     border: rgb(rgb(75, 75, 75));
     background-color: inherit;
     padding: 5px;
-    flex-grow: 1;
+    width: 100%;
     font-size: large;
 }
 
 .submit {
     margin-top: 0.5rem;
     width: 90%;
-
 }
 
 input[type="submit"] {
     width: 100%;
-    padding: 0.2rem
+    padding: 0.2rem;
+    border-radius: 5px;
 }
