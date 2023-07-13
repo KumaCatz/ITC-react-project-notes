@@ -1,83 +1,66 @@
 import { useState } from 'react';
+import NoteTitle from './NoteTitle';
+import NoteContent from './NoteContent';
+import NoteButton from './NoteButton';
 import GenerateNote from './GenerateNote';
 import "../css/NoteForm.css";
+import "../css/GenerateNote.css"
 
 function NoteForm() {
     const [notes, setNotes] = useState([]);
     const [title, setTitle] = useState('');
-    const [input, setInput] = useState('');
-    // const [height, setHeight] = useState(0);
+    const [content, setContent] = useState('');
     const [idCounter, setIdCounter] = useState(0);
+    const [notesList, setNotesList] = useState(notes);
 
+    function handleChange(e) {
+        const { name, value } = e.target;
+    
+        if (name === 'title') {
+            setTitle(value);
+        } else if (name === 'content') {
+            setContent(value);
+        }
+    }
+    
     function handleClick(e) {
         e.preventDefault();
-        if(input === '') return;
-
+        if(content === '') return;
+    
         const newNote = {
             id: idCounter,
-            content: input,
+            content: content,
             date: new Date().toString(),
             title: title,
         }
-
+    
         setNotes([...notes, newNote]);
-        setInput('');
+        setContent('');
         setTitle('');
         setIdCounter(idCounter + 1);
     }
 
-    // function handleKeyDown(e) {
-    //     if(e.key === 'Enter') {
-    //         handleClick(e);
-    //     }
-    // }
+    function handleDelete(id) {
+        if (window.confirm('Delete this note?') == true) {
+            const index = notes.slice().map(element => element.id).indexOf(id);
+            const updatedNotes = notes.splice(index, 1);
 
-    function handleChange(e) {
-        const { name, style, value } = e.target;
-
-        if (name === 'title') {
-            setTitle(value);
-        } else if (name === 'input') {
-            setInput(value);
+            setNotesList(updatedNotes);
         }
-
     }
+
 
     return (
         <div>
             <h1>Notepad</h1>
             <form>
                 <fieldset className="fieldset">
-                    <div className="note-title">
-                        <textarea
-                            type="text"
-                            placeholder="My title..."
-                            value={ title }
-                            name="title"
-                            onChange={ handleChange }
-                            >
-                        </textarea>
-                    </div>
-                    <div className="textarea">
-                        <textarea
-                            placeholder="My note..."
-                            value={ input }
-                            name="input"
-                            onChange={ handleChange }
-                            // onKeyDown={ handleKeyDown }
-                            >
-                        </textarea>
-                    </div>
-                    <div className="submit">
-                        <input
-                            type="submit"
-                            value="Add"
-                            onClick={ handleClick }
-                        />
-                    </div>
+                    <NoteTitle title={ title } handleChange={ handleChange } />
+                    <NoteContent content={ content } handleChange={ handleChange } />
+                    <NoteButton handleClick={ handleClick } />
                 </fieldset>
             </form>
-            <GenerateNote notes={ notes } />
+            <GenerateNote notes={ notes } handleDelete={ handleDelete } />
         </div>
     )
 }

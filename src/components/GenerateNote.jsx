@@ -1,17 +1,4 @@
-import React, { useState } from 'react';
-import "../css/GenerateNote.css";
-
 function GenerateNote({ notes }) {
-    const [notesList, setNotesList] = useState(notes);
-
-    function handleDelete(id) {
-        if (window.confirm('Delete this note?') == true) {
-            const index = notes.slice().map(element => element.id).indexOf(id);
-            const updatedNotes = notes.splice(index, 1);
-
-            setNotesList(updatedNotes);
-        }
-    }
 
     return (
         <div className='notes-container'>
