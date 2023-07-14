@@ -47,8 +47,10 @@ textarea {
     border: rgb(rgb(75, 75, 75));
     background-color: inherit;
     padding: 5px;
+    /* the padding makes the fieldtext area look pretty, but also add unnecessary height when setting scrollHeight. help? */
     width: 100%;
     font-size: large;
+    resize: none;
 }
 
 .submit {

@@ -1,26 +1,26 @@
-function GenerateNote({ notes }) {
+function GenerateNote({ notes, handleDelete }) {
 
     return (
         <div className='notes-container'>
-            { notes.map((object) =>
-                <div key={ object.id }>
+            { notes.map((note) =>
+                <div key={ note.id }>
                     <div className="note-header">
                         <div>
-                            { object.date }
+                            { note.date }
                         </div>
                         <button
-                            onClick={ () => handleDelete(object.id) }>
+                            onClick={ () => handleDelete(note.id) }>
                             X
                         </button>
                     </div>
                     <div className='content'>
-                        {object.title && (
+                        {note.title && (
                             <div className='title'>
-                            { object.title }
+                            { note.title }
                             </div>
                         )}
                         <div>
-                            { object.content }
+                            { note.content }
                         </div>
                     </div>
                 </div>

@@ -10,17 +10,22 @@ function NoteForm() {
     const [notes, setNotes] = useState([]);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [height, setHeight] = useState(0);
     const [idCounter, setIdCounter] = useState(0);
     const [notesList, setNotesList] = useState(notes);
 
     function handleChange(e) {
-        const { name, value } = e.target;
+        const { name, value, style } = e.target;
     
         if (name === 'title') {
             setTitle(value);
         } else if (name === 'content') {
             setContent(value);
         }
+
+        style.height = 'auto';
+        style.height = `${e.target.scrollHeight}px`;
+        setHeight(style.height);
     }
     
     function handleClick(e) {
@@ -56,7 +61,7 @@ function NoteForm() {
             <form>
                 <fieldset className="fieldset">
                     <NoteTitle title={ title } handleChange={ handleChange } />
-                    <NoteContent content={ content } handleChange={ handleChange } />
+                    <NoteContent content={ content } height={ height } handleChange={ handleChange } />
                     <NoteButton handleClick={ handleClick } />
                 </fieldset>
             </form>

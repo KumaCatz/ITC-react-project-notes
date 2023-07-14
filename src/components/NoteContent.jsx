@@ -1,21 +1,13 @@
-function NoteContent({ content, handleChange }) {
-
-
-    // function handleKeyDown(e) {
-    //     if(e.key === 'Enter') {
-    //         handleClick(e);
-    //     }
-    // }
+function NoteContent({ content, height, handleChange }) {
 
     return (
         <div className="textarea">
         <textarea
             placeholder="My note..."
             value={ content }
+            style={{height: { height }}}
             name="content"
-            // style={ {height: newHeight} }
             onChange={ handleChange }
-            // onKeyDown={ handleKeyDown }
             >
         </textarea>
     </div>
