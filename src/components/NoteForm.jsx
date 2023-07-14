@@ -3,8 +3,9 @@ import NoteTitle from './NoteTitle';
 import NoteContent from './NoteContent';
 import NoteButton from './NoteButton';
 import GenerateNote from './GenerateNote';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/NoteForm.css";
-import "../css/GenerateNote.css"
+import "../css/GenerateNote.css";
 
 function NoteForm() {
     const [notes, setNotes] = useState([]);
@@ -54,16 +55,15 @@ function NoteForm() {
         }
     }
 
-
     return (
         <div>
             <h1>Notepad</h1>
             <form>
-                <fieldset className="fieldset">
+                <div className="container">
                     <NoteTitle title={ title } handleChange={ handleChange } />
                     <NoteContent content={ content } height={ height } handleChange={ handleChange } />
                     <NoteButton handleClick={ handleClick } />
-                </fieldset>
+                </div>
             </form>
             <GenerateNote notes={ notes } handleDelete={ handleDelete } />
         </div>

@@ -13,44 +13,44 @@ form {
     flex-flow: column;
 }
 
-.fieldset {
+.container {
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem 0;
     flex-grow: 1;
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 99px rgba(0, 0, 0, 0.3);
 }
 
-.textarea, .note-title {
+.note-input {
     width: 90%;
     display: flex;
 }
 
-.note-title {
+.note-input.title {
     margin-bottom: .5em;
 }
 
-.note-title > textarea {
-    height: 1.5em;
+.title > textarea {
+    height: 57px;
 }
 
-.textarea {
+.content {
     height: 100%;
 }
 
 textarea {
     border-radius: 5px;
-    border: rgb(rgb(75, 75, 75));
+    border: rgb(rgb(75, 75, 75)) solid 1px;
     background-color: inherit;
-    padding: 5px;
-    /* the padding makes the fieldtext area look pretty, but also add unnecessary height when setting scrollHeight. help? */
     width: 100%;
     font-size: large;
     resize: none;
+    overflow: hidden;
+    padding: 0.1rem 0 0.1rem 0.5rem;
 }
 
 .submit {
