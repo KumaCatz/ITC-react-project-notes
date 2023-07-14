@@ -1,4 +1,4 @@
-function NoteButton({ handleClick }) {
+function FormButton({ handleClick }) {
 
     return (
         <div className="submit">
@@ -11,4 +11,4 @@ function NoteButton({ handleClick }) {
     )
 }
 
-export default NoteButton;
+export default FormButton;

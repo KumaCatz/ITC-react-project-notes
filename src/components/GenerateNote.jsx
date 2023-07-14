@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import NoteModal from "./NoteModal";
 import "../css/GenerateNote.css";
 
 function GenerateNote({ notes, handleDelete }) {
@@ -24,6 +25,7 @@ function GenerateNote({ notes, handleDelete }) {
                         </button>
                     </div>
                     <div className="note-content">
+        
                         <Button className='content' variant="primary" onClick={handleShow}>
                             {note.title && (
                                 <div className='title'>
@@ -35,17 +37,7 @@ function GenerateNote({ notes, handleDelete }) {
                             </div>
                         </Button>
 
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>{ note.title }</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>{ note.content }</Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                Close
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
+                        <NoteModal title={ note.title } content={ note.content }  />
                     </div>
                 </div>
             ) }

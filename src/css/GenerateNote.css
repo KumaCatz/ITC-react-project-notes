@@ -5,9 +5,9 @@
 
 .notes-container > div {
     margin: 1em;
-    flex: 0 0 calc(31.979% - 2em);
+    flex: 0 0 calc(33% - 1.7rem);
     border: solid;
-    padding: .5em;
+    padding: .3em;
     border-radius: 5px;
 }
 

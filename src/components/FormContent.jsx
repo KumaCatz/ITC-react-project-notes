@@ -1,4 +1,4 @@
-function NoteContent({ content, height, handleChange }) {
+function FormContent({ content, height, handleChange }) {
 
     return (
         <div className="note-input input-content">
@@ -14,4 +14,4 @@ function NoteContent({ content, height, handleChange }) {
     )
 }
 
-export default NoteContent;
+export default FormContent;

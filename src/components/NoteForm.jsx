@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import FormTitle from './FormTitle';
-import NoteContent from './NoteContent';
-import NoteButton from './NoteButton';
+import FormContent from './FormContent';
+import FormButton from './FormButton';
 import GenerateNote from './GenerateNote';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/NoteForm.css";
@@ -60,8 +60,8 @@ function NoteForm() {
             <form>
                 <div className="container">
                     <FormTitle title={ title } handleChange={ handleChange } />
-                    <NoteContent content={ content } height={ height } handleChange={ handleChange } />
-                    <NoteButton handleClick={ handleClick } />
+                    <FormContent content={ content } height={ height } handleChange={ handleChange } />
+                    <FormButton handleClick={ handleClick } />
                 </div>
             </form>
             <GenerateNote notes={ notes } handleDelete={ handleDelete } />
