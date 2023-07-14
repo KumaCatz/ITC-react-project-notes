@@ -25,21 +25,21 @@ form {
     box-shadow: 0 0 99px rgba(0, 0, 0, 0.3);
 }
 
-.note-input {
+.note-input, .form-title {
     width: 90%;
-    display: flex;
 }
 
-.note-input.title {
+.note-input.form-title {
     margin-bottom: .5em;
 }
 
-.title > textarea {
+.form-title > textarea {
     height: 57px;
 }
 
-.content {
-    height: 100%;
+.input-content, .input-content textarea {
+    display: flex;
+    flex-grow: 1;
 }
 
 textarea {

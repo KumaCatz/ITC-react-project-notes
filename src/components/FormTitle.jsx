@@ -1,7 +1,7 @@
-function NoteTitle ({ title, handleChange }) {
+function FormTitle ({ title, handleChange }) {
 
     return (
-        <div className="note-input title">
+        <div className="form-input form-title">
             <textarea
                 type="text"
                 placeholder="My title..."
@@ -14,4 +14,4 @@ function NoteTitle ({ title, handleChange }) {
     )
 }
 
-export default NoteTitle;
+export default FormTitle;

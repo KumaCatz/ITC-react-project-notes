@@ -1,7 +1,7 @@
 function NoteContent({ content, height, handleChange }) {
 
     return (
-        <div className="note-input content">
+        <div className="note-input input-content">
             <textarea
                 placeholder="My note..."
                 value={ content }
