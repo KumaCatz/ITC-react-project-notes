@@ -2,21 +2,20 @@ import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function NoteModal({ title, content }) {
-    const [show, setShow] = useState(false);
-  
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+function NoteModal({ title, content, show, handleClose }) {
+
+    function handleEdit(e) {
+        console.log(e.target.innerText)
+    }
 
     return(
-
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={ show } onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{ title }</Modal.Title>
+                    <Modal.Title contentEditable onClick={ handleEdit }>{ title }</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>{ content }</Modal.Body>
+                <Modal.Body contentEditable onClick={ handleEdit }>{ content }</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={ handleClose }>
                     Close
                     </Button>
                 </Modal.Footer>
