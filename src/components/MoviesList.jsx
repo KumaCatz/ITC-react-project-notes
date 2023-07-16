@@ -40,11 +40,20 @@ const MoviesList = () => {
         }
     }
 
+    function handleChange(e) {
+        const filteredValue = e.target.value;
+        const filteredSearch = initialMovies.filter(movie => movie.name.toLowerCase().includes(filteredValue.toLowerCase()));
+        setMovies(filteredSearch);
+    }
+
     return (
         <>
             <header>
                 <h1>Movies Page</h1>
-                <button onClick={ handleClick }>Toggle Comedy Only</button>
+                <div>
+                    <input type="text" placeholder="Filter Movies..." onChange={ handleChange } />
+                    <button onClick={ handleClick }>Toggle Comedy Only</button>
+                </div>
             </header>
             {movies.map((movie) => <Movie MovieProp={movie} />)}
         </>
