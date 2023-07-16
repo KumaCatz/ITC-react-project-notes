@@ -1,0 +1,65 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    min-width: 100px;
+    width: 30vw;
+    height: 30vh;
+    margin: auto auto 2rem auto;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-flow: column;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    flex-grow: 1;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 99px rgba(0, 0, 0, 0.3);
+}
+
+.note-input, .form-title {
+    width: 90%;
+}
+
+.note-input.form-title {
+    margin-bottom: .5em;
+}
+
+.form-title > textarea {
+    height: 57px;
+}
+
+.input-content, .input-content textarea {
+    display: flex;
+    flex-grow: 1;
+}
+
+textarea {
+    border-radius: 5px;
+    border: rgb(rgb(75, 75, 75)) solid 1px;
+    background-color: inherit;
+    width: 100%;
+    font-size: large;
+    resize: none;
+    overflow: hidden;
+    padding: 0.1rem 0 0.1rem 0.5rem;
+}
+
+.submit {
+    margin-top: 0.5rem;
+    width: 90%;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
