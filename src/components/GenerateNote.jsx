@@ -35,7 +35,7 @@ function GenerateNote({ notes, handleDelete }) {
                             </div>
                         </Button>
 
-                        <NoteModal title={ note.title } content={ note.content } show={ show } handleClose={ handleClose }  />
+                        <NoteModal title={ note.title } content={ note.content } show={ show } handleClose={ handleClose } id={note.id} />
 
                     </div>
                 </div>
