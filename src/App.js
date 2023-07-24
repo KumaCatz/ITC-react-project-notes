@@ -1,14 +1,10 @@
 import './App.css';
-import MoviesList from './components/MoviesList';
-// import Forms from './components/Forms';
-// import NoteForm from "./components/NoteForm";
+import NoteForm from "./components/NoteForm";
 
 function App() {
   return (
     <>
-      <MoviesList />
-      {/* <Forms /> */}
-      {/* <NoteForm /> */}
+      <NoteForm />
     </>
   );
 }
