@@ -1,4 +1,8 @@
-function FormContent({ content, height, handleChange }) {
+import { useContext } from "react";
+import { NotesContext } from "../App";
+
+function FormContent() {
+    const {content, height, handleChange} = useContext(NotesContext)
 
     return (
         <div className="note-input input-content">

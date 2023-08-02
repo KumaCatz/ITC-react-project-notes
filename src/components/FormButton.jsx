@@ -1,4 +1,8 @@
-function FormButton({ handleClick }) {
+import { useContext } from "react";
+import { NotesContext } from "../App";
+
+function FormButton() {
+    const {handleClick} = useContext(NotesContext)
 
     return (
         <div className="submit">
