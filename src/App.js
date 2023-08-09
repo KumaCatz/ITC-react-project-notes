@@ -1,20 +1,24 @@
-import { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, useReducer, useEffect } from 'react';
 import GenerateNote from './components/GenerateNote';
 import NoteForm from "./components/NoteForm";
-import NotesData from './components/NotesData';
-
+import { notesReducer, notesReducerActions } from './reducers/notesReducer';
+import NotesReducerContext from './contexts/NotesReducerContext';
+import NotesSummary from './components/NotesSummary';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 export const NotesContext = createContext(null)
 
 function App() {
-  const [notes, setNotes] = useState([])
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [height, setHeight] = useState(0);
   const [idCounter, setIdCounter] = useState(0);
-  const [notesList, setNotesList] = useState(notes);
+  const [notes, dispatchNotesChange] = useReducer(notesReducer, [])
+
+  useEffect(() => {
+    if (localStorage.length != 0) {dispatchNotesChange({type: notesReducerActions.FETCH_STORAGE})}
+  }, [])
 
   function handleChange(e) {
     const { name, value, style } = e.target;
@@ -24,7 +28,6 @@ function App() {
     } else if (name === 'content') {
         setContent(value);
     }
-
     style.height = 'auto';
     style.height = `${e.target.scrollHeight}px`;
     setHeight(style.height);
@@ -37,36 +40,41 @@ function handleClick(e) {
     const newNote = {
         id: idCounter,
         content: content,
-        date: new Date().toString(),
+        date: new Date(),
         title: title,
     }
-
-    setNotes([...notes, newNote]);
+    dispatchNotesChange({
+      type: notesReducerActions.ADD_ITEM,
+      data: newNote,
+    })
     setContent('');
     setTitle('');
     setIdCounter(idCounter + 1);
 }
 
-function handleDelete(id) {
-    if (window.confirm('Delete this note?') == true) {
-        const index = notes.slice().map(element => element.id).indexOf(id);
-        const updatedNotes = notes.splice(index, 1);
-        setNotesList(updatedNotes);
-    }
+function handleDelete(note) {
+  if (window.confirm('Delete this note?') == true) {
+    dispatchNotesChange({
+      type: notesReducerActions.DELETE_ITEM,
+      data: note
+    })
+  }
 }
 
   return (
-    <NotesContext.Provider value={{title,
-      notes,
-      content,
-      height,
-      handleChange,
-      handleClick,
-      handleDelete,
-      }}>
-      <NoteForm />
-      <GenerateNote />
-    </NotesContext.Provider>
+    <NotesReducerContext.Provider value={{notes, dispatchNotesChange}}>
+      <NotesContext.Provider value={{title,
+        content,
+        height,
+        handleChange,
+        handleClick,
+        handleDelete,
+        }}>
+        <NoteForm />
+        <NotesSummary />
+        <GenerateNote />
+      </NotesContext.Provider>
+    </NotesReducerContext.Provider>
   );
 }
 

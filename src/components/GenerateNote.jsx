@@ -1,23 +1,26 @@
 import { NotesContext } from "../App";
-import { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
+import NotesReducerContext from "../contexts/NotesReducerContext";
 import Button from 'react-bootstrap/Button';
 import NoteModal from "./NoteModal";
 import "../css/GenerateNote.css";
 
 function GenerateNote() {
-    const {notes, handleDelete} = useContext(NotesContext)
+    const {handleDelete} = useContext(NotesContext)
+    const {notes} = useContext(NotesReducerContext)
     const [show, setShow] = useState(false);
 
     return (
-        <div className='notes-container'>
+        <>
+            <div className='notes-container'>
             { notes.map((note) =>
                 <div key={ note.id }>
                     <div className="note-header">
                         <div>
-                            { note.date }
+                            { note.date.toString() }
                         </div>
                         <button
-                            onClick={ () => handleDelete(note.id) }>
+                            onClick={ () => handleDelete(note) }>
                             delete
                         </button>
                     </div>
@@ -39,7 +42,9 @@ function GenerateNote() {
                     </div>
                 </div>
             ) }
-        </div>
+            </div>
+        </>
+
     )
 }
 
